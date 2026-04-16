@@ -1,6 +1,6 @@
 package day05;
 
-public class Task0407 {
+public class Task040701 {
     public static void main(String[] args) {
 
         int[] numbers = {3,6,9,12,15};
@@ -13,5 +13,9 @@ public class Task0407 {
         for(int i=0;i<numbers.length;i++){
             System.out.println(reverse[i]);
         }
+
+
+
+
     }
 }

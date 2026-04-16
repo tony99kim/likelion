@@ -1,4 +1,4 @@
-package com.mycompany.service.model;
+package com.mycompany.model;
 
 public class Product {
     private String name;

@@ -1,4 +1,4 @@
-package day06.shapes;
+package day07.shapes;
 
 public class Circle {
     private double radius;

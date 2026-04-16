@@ -1,4 +1,4 @@
-package day06.bank;
+package day07.bank;
 
 public class BankTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package day09.task3;
+package day09.problem3;
 
 public class Book {
     public String title;

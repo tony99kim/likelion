@@ -1,8 +1,7 @@
-package day06;
+package day06.lotto;
 
 public class LottoMachine {
-         //    Ball ball1 = new Ball();
-        //    Ball[] balls;
+
          Ball[] lottoBalls = new Ball[45];
 
     //    로또기계안에 볼을 채우는 기능이 필요

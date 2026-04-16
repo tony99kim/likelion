@@ -1,4 +1,4 @@
-package day09.task3;
+package day09.problem3;
 
 public class LibraryTest {
     public static void main(String[] args) {
