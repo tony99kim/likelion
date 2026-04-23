@@ -10,6 +10,21 @@ public class MemberDTO {
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
+    public MemberDTO(){}
+
+    public MemberDTO(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public MemberDTO(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }
@@ -56,5 +71,17 @@ public class MemberDTO {
 
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
+    }
+
+    @Override
+    public String toString() {
+        return "MemberDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createAt=" + createAt +
+                ", updateAt=" + updateAt +
+                '}';
     }
 }

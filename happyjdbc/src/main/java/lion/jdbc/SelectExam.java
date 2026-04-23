@@ -5,7 +5,7 @@ import java.sql.*;
 public class SelectExam {
     public static void main(String[] args) {
 
-        String url = "jdbc:mysql://localhost:3306/hr";
+        String url = "jdbc:mysql://localhost:3306/hrdb";
         String user = "hr";
         String password = "hr";
 

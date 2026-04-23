@@ -7,9 +7,9 @@ public class ConnectionExam {
     public static void main(String[] args) throws Exception{
 //        DB에 접속이 필요하다!!  -- 접속이 추상화된 객체 Connection
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/liondb";
-        String user = "lion";
-        String password = "lion1234";
+        String url = "jdbc:mysql://localhost:3306/hrdb";
+        String user = "hr";
+        String password = "hr";
         conn = DriverManager.getConnection(url,user,password);
 
         if(conn != null)
