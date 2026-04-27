@@ -49,14 +49,26 @@ public class MarketApplication {
     }
 
     private static void createProduct(Scanner sc) {
+        System.out.println("상품 등록을 취소하려면 각 입력에서 '취소'를 입력하세요.");
+
         System.out.print("상품명 > ");
         String title = sc.nextLine();
+        if ("취소".equals(title)) {
+            System.out.println("상품 등록을 취소하고 메인 메뉴로 돌아갑니다.");
+            return;
+        }
 
-        System.out.print("가격 > ");
-        int price = Integer.parseInt(sc.nextLine());
+        Integer price = inputIntegerOrCancel(sc, "가격 > ");
+        if (price == null) {
+            return;
+        }
 
         System.out.print("상태 > ");
         String status = sc.nextLine();
+        if ("취소".equals(status)) {
+            System.out.println("상품 등록을 취소하고 메인 메뉴로 돌아갑니다.");
+            return;
+        }
 
         boolean result = marketService.createProduct(title, price, status);
         if (result) {
@@ -67,16 +79,20 @@ public class MarketApplication {
     }
 
     private static void getProduct(Scanner sc) {
-        System.out.print("상품 번호 > ");
-        long productId = Long.parseLong(sc.nextLine());
+        Long productId = inputLongOrCancel(sc, "상품 번호 > ");
+        if (productId == null) {
+            return;
+        }
 
         ProductDTO productDTO = marketService.getProduct(productId);
 
         if (productDTO == null) {
             System.out.println("상품없음");
-        } else {
-            System.out.println(productDTO);
+            return;
         }
+
+        printProductHeader();
+        printProductRow(productDTO);
     }
 
     private static void getProducts() {
@@ -84,16 +100,20 @@ public class MarketApplication {
 
         if (products.isEmpty()) {
             System.out.println("상품없음");
-        } else {
-            for (ProductDTO product : products) {
-                System.out.println(product);
-            }
+            return;
+        }
+
+        printProductHeader();
+        for (ProductDTO product : products) {
+            printProductRow(product);
         }
     }
 
     private static void buyProduct(Scanner sc) {
-        System.out.print("구매할 상품 번호 > ");
-        long productId = Long.parseLong(sc.nextLine());
+        Long productId = inputLongOrCancel(sc, "구매할 상품 번호 > ");
+        if (productId == null) {
+            return;
+        }
 
         boolean result = marketService.buyProduct(productId);
         if (result) {
@@ -104,14 +124,65 @@ public class MarketApplication {
     }
 
     private static void deleteProduct(Scanner sc) {
-        System.out.print("삭제할 상품 번호 > ");
-        long productId = Long.parseLong(sc.nextLine());
+        Long productId = inputLongOrCancel(sc, "삭제할 상품 번호 > ");
+        if (productId == null) {
+            return;
+        }
 
         boolean result = marketService.deleteProduct(productId);
         if (result) {
             System.out.println("삭제 완료");
         } else {
             System.out.println("삭제 실패");
+        }
+    }
+
+    private static void printProductHeader() {
+        System.out.printf("%-10s %-20s %-10s %-10s %-20s%n",
+                "상품번호", "상품명", "가격", "상태", "등록일");
+        System.out.println("---------------------------------------------------------------------");
+    }
+
+    private static void printProductRow(ProductDTO product) {
+        System.out.printf("%-10d %-20s %-10d %-10s %-20s%n",
+                product.getProductId(),
+                product.getTitle(),
+                product.getPrice(),
+                product.getStatus(),
+                product.getCreateAt());
+    }
+
+    private static Long inputLongOrCancel(Scanner sc, String prompt) {
+        System.out.print(prompt);
+        String input = sc.nextLine();
+
+        if ("취소".equals(input)) {
+            System.out.println("메인 메뉴로 돌아갑니다.");
+            return null;
+        }
+
+        try {
+            return Long.parseLong(input);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력하세요.");
+            return null;
+        }
+    }
+
+    private static Integer inputIntegerOrCancel(Scanner sc, String prompt) {
+        System.out.print(prompt);
+        String input = sc.nextLine();
+
+        if ("취소".equals(input)) {
+            System.out.println("메인 메뉴로 돌아갑니다.");
+            return null;
+        }
+
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자만 입력하세요.");
+            return null;
         }
     }
 }

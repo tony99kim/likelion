@@ -60,6 +60,10 @@ public class ProductDTO {
 
     @Override
     public String toString() {
-        return "ProductDTO{" + "productId=" + productId + ", title=" + title + ", price=" + price + ", status=" + status + ", createAt=" + createAt + '}';
+        return "상품번호: " + productId + "\n"
+                + "상품명: " + title + "\n"
+                + "가격: " + price + "\n"
+                + "상태: " + status + "\n"
+                + "등록일: " + createAt;
     }
 }
