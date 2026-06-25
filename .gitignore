@@ -1,4 +1,11 @@
+node_modules/
+.gradle/
+build/
+out/
+target/
+logs/
+*.log
 .idea/
-docker/mysql/database/datadir/
-*.sock
-*.class
+.vscode/
+.DS_Store
+desktop.ini
