@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: securityexam
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/securitydb
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - read:user
+              - user:email
+
+
+
+jwt:
+  secretKey: 405c706572616e646f416e64526573756c742e676974405c706572616e646f416e64526573756c742e676974
+  refreshKey: asdjfusjafjhuhfuh12384u3284u83r8uf8vfujdguejhg8ehjg8892u3845u3208945320945u8320945u8ggg
+
+
+
+  logging:
+    level:
+      org:
+        springframework:
+          security: trace
+
+server:
+  tomcat:
+    thread:
+      max: 200
+      min-spare: 5

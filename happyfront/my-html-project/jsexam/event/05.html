@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event5</title>
+</head>
+<body>
+    <script>   
+        
+    function changeColor(event) {
+        const r  = Math.round(Math.random() * 255);
+        const g  = Math.round(Math.random() * 255); 
+        const b  = Math.round(Math.random() * 255);
+
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+        console.log(event.target); // 클릭한 위치의 정보가 출력됨
+    
+        document.removeEventListener("click", changeColor);
+    }
+
+    document.addEventListener("click", changeColor);
+
+    const hievent = (event) => {
+       alert("hi");
+       e.target.removeEventListener("click", hievent);
+    };
+    
+    document.querySelector("button").addEventListener("click",hievent);
+    </script>
+</body>
+</html>

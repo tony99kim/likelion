@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event4</title>
+</head>
+<body>
+    <button>클릭</button>
+    <button>클릭</button>
+    <button>클릭</button>
+
+    <script>
+        // 
+        
+        const button = document.querySelector("button");
+        console.log(button);
+
+        const bList = document.querySelectorAll("button");
+        console.log(bList);
+
+        button.addEventListener("click", function(event) {
+            console.log(event); // 클릭한 버튼의 정보가 출력됨
+            console.log(this); // 클릭한 버튼의 정보가 출력됨
+            console.log(event.target); // 클릭한 버튼의 정보가 출력됨
+        });
+
+        for(let i = 0; i < bList.length; i++) {
+            bList[i].addEventListener("click", (e) =>{
+                console.log(e.target); // 클릭한 버튼의 정보가 출력됨
+                console.log(e.target.value); // 클릭한 버튼의 value 속성값이 출력됨
+            });
+        }
+    </script>
+    
+</body>
+</html>

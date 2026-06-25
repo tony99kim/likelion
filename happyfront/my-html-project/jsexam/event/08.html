@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+</head>
+<body>
+    <h1>todo list</h1>
+    <ul id="todo-list">
+        <li>할일1</li>
+        <li>할일2</li>
+        <li>할일3</li>
+        <li>할일4</li>
+        <li>할일5</li>
+    </ul>
+
+    <label for="todo">할일 추가 : </label>
+    <input type="text" id="todo-value">
+    <button id="todo-btn">할일 추가</button>
+
+    <script>
+        //1. 할일을 입력하고, 할일 입력 버튼을 클릭하면, 내가 입력한 할일이 <li>할일5</li> 뒤에 추가되도록 코드를 만들어 주세요.
+        //2. <li>할일1</li> 을 클릭하면 alert 창에 "할일1" 이 출력 되도록 이벤트를 만들어 주세요
+
+        document.getElementById("todo-btn").addEventListener("click", () => {
+            const todo = document.getElementById("todo-value");
+            const ul = document.getElementById("todo-list");
+            const li = document.createElement("li");
+            li.textContent = todo.value;
+            ul.appendChild(li);
+            todo.value = "";
+        });
+
+        document.getElementById("todo-list").addEventListener("click", (e) => {
+            if(e.target.tagName === "LI") {
+                alert(e.target.textContent);
+            }
+        });        
+
+    </script>
+    
+</body>
+</html>

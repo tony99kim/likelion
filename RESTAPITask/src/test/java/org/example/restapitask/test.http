@@ -1,0 +1,9 @@
+
+# curl -X GET "http://localhost:8080/comments?postId=1"
+#  -u chulsoo:password123!
+#  -H "Accept: application/json"
+GET http://localhost:8080/comments?postId=1
+Authorization: Basic chulsoo password123!
+Accept: application/json
+
+###

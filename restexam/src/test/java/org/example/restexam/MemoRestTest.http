@@ -1,0 +1,47 @@
+GET http://localhost:8080/api/memos
+
+
+###
+GET http://localhost:8080/api/memos/1
+
+###
+POST http://localhost:8080/api/memos
+Content-Type: application/json
+
+{
+  "memo":"첫번째 메모"
+}
+
+
+###
+POST http://localhost:8080/api/memos
+Content-Type: application/json
+
+{
+  "memo":"두번째 메모"
+}
+
+### 없는 메모 수정
+PUT http://localhost:8080/api/memos/11
+Content-Type: application/json
+
+{
+    "memo": "수정된 메모!"
+}
+
+### 메모수정
+PUT http://localhost:8080/api/memos/1
+Content-Type: application/json
+
+{
+  "memo": "수정된 메모!"
+}
+
+### 메모삭제
+DELETE http://localhost:8080/api/memos/1
+Content-Type: application/json
+
+{
+  "memo": "삭제된 메모!"
+}
+

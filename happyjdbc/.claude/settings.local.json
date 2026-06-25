@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/likelion/happyjdbc -type f \\\\\\(-name *.sql -o -name *.properties -o -name *.xml \\\\\\))"
+    ]
+  }
+}

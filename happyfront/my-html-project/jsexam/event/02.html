@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">버튼</button>
+    <script>
+        // 이벤트 핸들러 함수
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', hi);
+        
+        function hi() {
+            alert('안녕하세요');
+            console.log('안녕'); // 이벤트가 발생한 요소(btn)를 가리킴
+        }
+        //btn.addEventListener('click', () => alert('반갑습니다'));
+
+    </script>
+</body>
+</html>
