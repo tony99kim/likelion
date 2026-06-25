@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 삭제</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">게시글 삭제</h1>
+
+    <div class="warning-box">
+        <p>정말 이 게시글을 삭제하시겠습니까?</p>
+        <p>삭제된 게시글은 복구할 수 없습니다.</p>
+    </div>
+
+    <p class="error-message"  th:text="${errorMessage}"></p>
+
+    <form th:action="@{/delete}" method="post">
+        <input type="hidden" name="id" th:value="${boardId}">
+
+        <div class="form-group">
+            <label>암호</label>
+            <input class="form-control" type="password" name="password" placeholder="게시글 암호를 입력하세요">
+        </div>
+
+        <div class="action-area">
+            <button class="btn btn-danger" type="submit">삭제</button>
+            <a class="btn btn-secondary" th:href="@{/view(id=${boardId})}">취소</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

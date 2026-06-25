@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <p class="message" th:if="${message}" th:text="${message}"></p>
+
+    <h1 class="page-title" th:text="${board.title}">게시글 제목</h1>
+
+    <div class="detail-box">
+        <div class="detail-row">
+            <div class="detail-label">번호</div>
+            <div class="detail-value"th:text="${board.displayNumber}">1</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">작성자</div>
+            <div class="detail-value" th:text="${board.name}">작성자</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">등록일</div>
+            <div class="detail-value" th:text="${board.createdAt}">등록일</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">수정일</div>
+            <div class="detail-value" th:text="${board.updatedAt}">수정일</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">내용</div>
+            <div class="detail-value detail-content" th:text="${board.content}">
+                게시글 내용
+            </div>
+        </div>
+    </div>
+
+    <div class="action-area">
+        <a class="btn btn-secondary" th:href="@{/list}">목록으로</a>
+        <a class="btn" th:href="@{/updateform(id=${board.id})}">수정하기</a>
+        <a class="btn btn-danger" th:href="@{/deleteform(id=${board.id})}">삭제하기</a>
+    </div>
+</div>
+</body>
+</html>
